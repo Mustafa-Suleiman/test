@@ -1,0 +1,17 @@
+{% extends "project/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Delete Project" %}</h2>
+
+<p>{% trans "Are you sure you want to delete" %} "{{ object.title }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">{% trans "Yes, Delete" %}</button>
+</form>
+
+<p>
+  <a class="btn btn-secondary" href="{% url 'project_list' %}">{% trans "Back to Projects" %}</a>
+</p>
+{% endblock %}
